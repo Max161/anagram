@@ -1,5 +1,8 @@
 ## Anagram Program
 This program takes two strings as input and determines whether they are anagrams of each other.
+In this version of the program we're ignoring every special character and every number. 
+For this reason if provided as input text1 and text2 the result will be positive. 
+Same for text! and text1, these are considered to be anagrams. 
 
 ## Installation
 To use this program, you must have Java and Maven installed on your computer. You can download Java and Maven from the respective official website.
