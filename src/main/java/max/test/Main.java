@@ -1,6 +1,6 @@
 package max.test;
 
-import max.test.service.AnagramChecker;
+import max.test.service.AnagramService;
 public class Main {
   public static void main(String[] args) {
 
@@ -11,7 +11,7 @@ public class Main {
     var subject = args[0];
     var anagram = args[1];
 
-    var isAnagram = AnagramChecker.checkAnagram(subject, anagram);
+    var isAnagram = AnagramService.checkAnagram(subject, anagram);
 
     if (isAnagram) {
       System.out.println("Congratulations the words are anagrams!");

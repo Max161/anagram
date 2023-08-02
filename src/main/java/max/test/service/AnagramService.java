@@ -15,12 +15,12 @@ import java.util.function.IntPredicate;
  * or skilled
  * anagrammatist is to produce anagrams that reflect or comment on their subject.
  */
-public class AnagramChecker {
+public class AnagramService {
 
   public static final String NOT_A_LETTER = "[^a-zA-Z]";
   public static final String EMPTY_STRING = "";
 
-  private AnagramChecker() {}
+  private AnagramService() {}
 
   public static boolean checkAnagram(String subject, String anagram) {
 
@@ -31,7 +31,7 @@ public class AnagramChecker {
     var subjectToProcess = removeAll(NOT_A_LETTER, subject).toLowerCase();
     var anagramToProcess = removeAll(NOT_A_LETTER, anagram).toLowerCase();
 
-    if (subjectToProcess.length() != anagramToProcess.length()) {
+    if (hasDifferentLength(subjectToProcess, anagramToProcess)) {
       return false;
     }
 
@@ -48,6 +48,10 @@ public class AnagramChecker {
 
     return Arrays.stream(charCounts).noneMatch(valueDifferentFromZero());
 
+  }
+
+  private static boolean hasDifferentLength(String subjectToProcess, String anagramToProcess) {
+    return subjectToProcess.length() != anagramToProcess.length();
   }
 
   private static IntPredicate valueDifferentFromZero() {

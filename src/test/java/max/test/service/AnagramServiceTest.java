@@ -4,15 +4,15 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static max.test.service.AnagramChecker.checkAnagram;
+import static max.test.service.AnagramService.checkAnagram;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class AnagramCheckerTest {
+class AnagramServiceTest {
 
   @Test
-  void returnFalse_whenEitherOneOrAllParameterAreNull() {
+  void whenEitherOneOrAllParameterAreNull_returnFalse() {
 
     assertAll("Assert returning false when parameters are null",
       () -> assertFalse(checkAnagram(null, "anagram")),
@@ -27,7 +27,7 @@ class AnagramCheckerTest {
     "subject, veryLongAnagram",
     "len+1, lenght+123"
   })
-  void returnFalse_WhenInputHasDiferentLengths(String subject, String anagram){
+  void whenInputHasDiferentLengths_returnFalse(String subject, String anagram){
    assertFalse(checkAnagram(subject, anagram));
   }
 
